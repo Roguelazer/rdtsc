@@ -1,0 +1,11 @@
+build/
+dist/
+sdist/
+env/
+*.egg-info/
+*.egg_info/
+
+*.pyc
+*.so
+*.dll
+*.dylib
