@@ -30,7 +30,7 @@ class RTDSCBuild(build):
 
 setup(
     name="rdtsc",
-    version="0.2",
+    version="0.2.1",
     author="James Brown",
     author_email="Roguelazer@gmail.com",
     url="https://github.com/Roguelazer/rdtsc",
@@ -40,11 +40,13 @@ setup(
     cmdclass={'build': RTDSCBuild},
     package_data={'rdtsc': [sofile]},
     keywords=["performance"],
-    description="Cycle timer wrapping the Intel X86 RTDSC instruction",
-    test_suite="nose.collector",
+    description="Cycle timer wrapping the Intel x86 RTDSC instruction",
     classifiers=[
         "Development Status :: 3 - Alpha",
+        "Programming Language :: C",
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: ISC License (ISCL)",
     ],
