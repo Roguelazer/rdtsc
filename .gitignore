@@ -9,3 +9,5 @@ env/
 *.so
 *.dll
 *.dylib
+
+.cache/
