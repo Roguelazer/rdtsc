@@ -4,7 +4,7 @@ import sys
 import os
 import subprocess
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 from distutils.command.build import build
 
@@ -22,20 +22,23 @@ class RTDSCBuild(build):
         self.build_base = os.path.join(self.build_base, 'python')
 
     def run(self):
-        subprocess.call(['cc', '-shared', '-o', sofile, '-fPIC', 'rdtsc.c'])
+        subprocess.call(['cc', '-shared', '-o',
+                         os.path.join('src', 'rdtsc', sofile), '-fPIC',
+                         'rdtsc.c'])
         build.run(self)
 
 
 setup(
     name="rdtsc",
-    version="0.1",
+    version="0.2",
     author="James Brown",
     author_email="Roguelazer@gmail.com",
     url="https://github.com/Roguelazer/rdtsc",
     license="ISC",
-    packages=find_packages(exclude=['tests']),
+    packages=['rdtsc'],
+    package_dir={'rdtsc': 'src/rdtsc'},
     cmdclass={'build': RTDSCBuild},
-    data_files=[('lib', [sofile])],
+    package_data={'rdtsc': [sofile]},
     keywords=["performance"],
     description="Cycle timer wrapping the Intel X86 RTDSC instruction",
     test_suite="nose.collector",
