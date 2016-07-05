@@ -1,0 +1,13 @@
+machine:
+  python:
+    version: 3.5.0
+dependencies:
+  override:
+    - pip install tox tox-pyenv
+    - pyenv local 2.7.11 3.4.4 3.5.1
+test:
+  override:
+    - tox
+  post:
+    - cp coverage.xml $CIRCLE_ARTIFACTS/
+    - cp -R htmlcov $CIRCLE_ARTIFACTS/
