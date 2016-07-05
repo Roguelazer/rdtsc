@@ -11,3 +11,7 @@ env/
 *.dylib
 
 .cache/
+.coverage
+.tox
+*.xml
+htmlcov

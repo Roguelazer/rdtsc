@@ -24,7 +24,7 @@ class RTDSCBuild(build):
     def run(self):
         subprocess.call(['cc', '-shared', '-o',
                          os.path.join('src', 'rdtsc', sofile), '-fPIC',
-                         'rdtsc.c'])
+                         'src/rdtsc.c'])
         build.run(self)
 
 
